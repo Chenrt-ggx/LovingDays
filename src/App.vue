@@ -49,7 +49,8 @@ body {
 }
 
 .text {
-  margin-top: 36vh;
+  width: 90vw;
+  margin: 36vh auto;
   animation: scaleMove 2.5s ease-in-out infinite;
 }
 </style>
