@@ -1,5 +1,8 @@
 # Loving Days
 
+![license](https://img.shields.io/github/license/Chenrt-ggx/LovingDays)
+![version](https://img.shields.io/github/package-json/v/Chenrt-ggx/LovingDays)
+
 ## Project setup
 
 ```
