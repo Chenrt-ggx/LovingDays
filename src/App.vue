@@ -1,11 +1,13 @@
 <template>
   <div id="app">
-    <Snow :count="140"></Snow>
+    <Text class="text" />
+    <Snow :count="140" class="background"></Snow>
   </div>
 </template>
 
 <script setup>
 import Snow from '@/components/Snow';
+import Text from '@/components/Text';
 </script>
 
 <style lang="scss">
@@ -21,5 +23,33 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+</style>
+
+<style lang="scss" scoped>
+.background {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+@keyframes scaleMove {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.text {
+  margin-top: 36vh;
+  animation: scaleMove 2.5s ease-in-out infinite;
 }
 </style>

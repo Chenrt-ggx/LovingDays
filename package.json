@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "moment": "^2.29.4",
     "tsparticles": "^2.5.3",
     "vue": "^3.2.13",
     "vue3-particles": "^2.5.3"
