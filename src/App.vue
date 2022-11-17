@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Firework v-if="egg" />
     <Text class="text" />
     <Snow :count="140" class="background" />
     <Player class="player" />
@@ -7,9 +8,13 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
 import Snow from '@/components/Snow';
 import Text from '@/components/Text';
 import Player from '@/components/Player';
+import Firework from '@/components/Firework';
+
+const egg = ref(false);
 </script>
 
 <style lang="scss">
