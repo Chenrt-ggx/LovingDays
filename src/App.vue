@@ -1,13 +1,15 @@
 <template>
   <div id="app">
     <Text class="text" />
-    <Snow :count="140" class="background"></Snow>
+    <Snow :count="140" class="background" />
+    <Player class="player" />
   </div>
 </template>
 
 <script setup>
 import Snow from '@/components/Snow';
 import Text from '@/components/Text';
+import Player from '@/components/Player';
 </script>
 
 <style lang="scss">
@@ -50,7 +52,14 @@ body {
 
 .text {
   width: 90vw;
-  margin: 36vh auto;
+  margin: 34vh auto;
   animation: scaleMove 2.5s ease-in-out infinite;
+}
+
+.player {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 5vh;
 }
 </style>

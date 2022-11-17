@@ -14,29 +14,29 @@
 
 <script setup>
 import moment from 'moment';
-import config from '@/config.json';
+import config from '@/config.js';
 import { onMounted, ref } from 'vue';
+import display from 'raw-loader!@/console.txt';
 
 const from = moment(config.from, 'YYYY-M-D');
 
 const parseTimeDiff = (lhs, rhs) => {
-  let result = [];
-  let days = lhs.diff(rhs, 'days');
+  const result = [];
+  const days = lhs.diff(rhs, 'days');
   result.push(days + 1 + ' 天');
-  let hours = lhs.diff(rhs, 'hours');
+  const hours = lhs.diff(rhs, 'hours');
   result.push(hours - days * 24 + ' 小时');
-  let minutes = lhs.diff(rhs, 'minutes');
+  const minutes = lhs.diff(rhs, 'minutes');
   result.push(minutes - hours * 60 + ' 分钟');
   return result.join(', ');
 };
 
-let delta = ref(parseTimeDiff(moment(), from));
+const delta = ref(parseTimeDiff(moment(), from));
 
-onMounted(() =>
-  setInterval(() => {
-    delta.value = parseTimeDiff(moment(), from);
-  }, 10 * 1000)
-);
+onMounted(() => {
+  setInterval(() => (delta.value = parseTimeDiff(moment(), from)), 10 * 1000);
+  console.log('%c' + display, 'color: red');
+});
 </script>
 
 <style lang="scss" scoped>
