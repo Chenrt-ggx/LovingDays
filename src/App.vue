@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" @click="handleClick">
     <Firework v-if="egg" />
     <Text class="text" />
     <Snow :count="140" class="background" />
@@ -9,12 +9,27 @@
 
 <script setup>
 import { ref } from 'vue';
+import config from '@/config';
 import Snow from '@/components/Snow';
 import Text from '@/components/Text';
 import Player from '@/components/Player';
 import Firework from '@/components/Firework';
 
 const egg = ref(false);
+
+let count = 0;
+
+const handleClick = () => {
+  console.log(count);
+  ++count;
+  if (count === config.egg.count) {
+    egg.value = true;
+    setTimeout(() => {
+      count = 0;
+      egg.value = false;
+    }, config.egg.last);
+  }
+};
 </script>
 
 <style lang="scss">
