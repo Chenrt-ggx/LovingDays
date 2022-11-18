@@ -20,7 +20,6 @@ const egg = ref(false);
 let count = 0;
 
 const handleClick = () => {
-  console.log(count);
   ++count;
   if (count === config.egg.count) {
     egg.value = true;
